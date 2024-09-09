@@ -4,4 +4,4 @@
 
 
 select * from track
-where name like "The%" and length >= "00:01:00"
+where name like "The %" and length >= "00:01:00"
