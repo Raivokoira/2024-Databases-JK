@@ -17,7 +17,7 @@ INSERT INTO album(id, name, year, artist_id) VALUES
     (7, "The Final Frontier", 2010, 1);
 
 INSERT INTO track(name, length, track_number, album_id) VALUES
-    ("Satellite 15... The Final Frontier", "00:08:40", 1, 7),
+    ("Satellite 15... The Final Frontier", "00:08:40", 1, 7), --last_insert_id() automaattisesti lisää ID.
     ("El Dorado", "00:06:49", 2, 7),
     ("Mother of Mercy", "00:05:20", 3, 7),
     ("Coming Home", "00:05:52", 4, 7),

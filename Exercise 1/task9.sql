@@ -6,7 +6,7 @@
 -- - a reference to the album id which is reviewed, not null
 CREATE TABLE review(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    reviewer_name VARCHAR(20000) NOT NULL,
+    reviewer_name VARCHAR(255) NOT NULL,
     headline VARCHAR(255),
     review_text TEXT,
     album_id INT NOT NULL,
