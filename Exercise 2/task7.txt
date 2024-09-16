@@ -1,1 +1,8 @@
 Explain the difference between INNER JOIN, LEFT (OUTER) JOIN and RIGHT (OUTER) JOIN.
+
+INNER JOIN (JOIN default) returns matching values from both tables.
+
+LEFT JOIN returns all values from the left table and all the matching values from the right table
+
+RIGHT JOIN Same as LEFT but the other way around
+
