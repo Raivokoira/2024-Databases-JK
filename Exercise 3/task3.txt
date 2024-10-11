@@ -1,2 +1,11 @@
 Try to delete employees Steven Thorpe and Nancy Freehafer from the database.
 Does the delete operation succeed or not and why?
+
+
+Unable to delete as the employees have foreign key restrictions/constrains? because they're being referred in the orders tables.
+
+
+MariaDB [northwind]> DELETE FROM employees WHERE first_name = 'Steven' AND last_name = 'Thorpe';
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`northwind`.`purchase_orders`, CONSTRAINT `fk_purchase_orders_employees1` FOREIGN KEY (`created_by`) REFERENCES `employees` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+MariaDB [northwind]> DELETE FROM employees WHERE first_name = 'Nancy' AND last_name = 'Freehafer';
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`northwind`.`orders`, CONSTRAINT `fk_orders_employees1` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)

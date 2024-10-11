@@ -16,8 +16,34 @@ Contains
 - amount: DECIMAL
 
 Define the following foreign key restrictions to the Contains table:
-When Ingredient's or Product's id is updated, the updated value is reflected to Contains table. 
+When Ingredient's or Product's id is updated, the updated value is reflected to Contains table.
 When an ingredient is deleted, the delete operation is blocked if there are any products
-which contains the ingredient. When a product is deleted, the product_id in the Contains 
+which contains the ingredient. When a product is deleted, the product_id in the Contains
 table is set to NULL.
 */
+
+CREATE DATABASE Products;
+-- USE Products;
+
+CREATE TABLE Product (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)
+);
+
+CREATE TABLE Ingredient (
+    id INT PRIMARY KEY,
+    name VARCHAR(255),
+    calories DECIMAL(10, 2)
+);
+
+CREATE TABLE Contains (
+    ingredient_id INT,
+    product_id INT,
+    amount DECIMAL(10, 2),
+    FOREIGN KEY (ingredient_id) REFERENCES Ingredient(id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+    FOREIGN KEY (product_id) REFERENCES Product(id)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL
+);
